@@ -2,9 +2,11 @@ module.exports = {
   'parser': 'babel-eslint',
   'extends': 'eslint:recommended',
   'plugins': [
-    'flowtype'
+    'flowtype',
+    'jest'
   ],
   'rules': {
+    'no-console': 'off',
     'quotes': ['error', 'single'],
     'object-shorthand': ['error', 'always'],
     'prefer-template': 2,
@@ -13,7 +15,6 @@ module.exports = {
     'prefer-rest-params': 2,
     'no-new-func': 2,
     'space-before-blocks': 2,
-    'space-before-function-paren': 2,
     'prefer-arrow-callback': 2,
     'arrow-spacing': 2,
     'arrow-parens': 2,
@@ -42,7 +43,7 @@ module.exports = {
     'no-else-return': 2,
     'no-nested-ternary': 2,
     'no-unneeded-ternary': 2,
-    'one-var': 2,
+    'one-var': 0,
     'no-multi-assign': 2,
     'no-duplicate-imports': 2,
     'no-iterator': 2,
@@ -114,9 +115,14 @@ module.exports = {
     'flowtype/semi': [2, 'always'],
     'flowtype/space-after-type-colon': [2, 'always', { 'allowLineBreak': false }]
   },
+  "env": {
+    "node": true,
+    "jest": true,
+    "jest/globals": true
+  },
   'settings': {
     'flowtype': {
-      'onlyFilesWithFlowAnnotation': false
+      'onlyFilesWithFlowAnnotation': true
     }
   }
 };

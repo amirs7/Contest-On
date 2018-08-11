@@ -4,18 +4,51 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "babel src/ -d lib/",
+    "server": "node lib/server/index.js",
+    "test": "jest"
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@types/jest": "^23.3.0",
     "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.3",
     "babel-eslint": "^8.2.6",
+    "babel-jest": "^23.4.0",
     "babel-preset-flow": "^6.23.0",
     "eslint": "^4.19.1",
     "eslint-config-airbnb-base": "^13.0.0",
     "eslint-plugin-flowtype": "^2.50.0",
     "eslint-plugin-import": "^2.13.0",
-    "flow-bin": "^0.77.0"
+    "flow-bin": "^0.77.0",
+    "jest": "^23.4.1",
+    "mocha": "^5.2.0",
+    "regenerator-runtime": "^0.12.0"
+  },
+  "jest": {
+    "coverageDirectory": "coverage",
+    "testEnvironment": "node",
+    "transform": {
+      "/lib/*.js/": "babel-jest"
+    },
+    "transformIgnorePatterns": [
+      "/node_modules/"
+    ],
+    "testMatch": [
+      "**/__tests__/**/*.js?(x)",
+      "**/?(*.)+(spec|test).js?(x)"
+    ]
+  },
+  "flow": {},
+  "babel": {
+    "presets": [
+      "flow"
+    ]
+  },
+  "dependencies": {
+    "chai": "^4.1.2",
+    "eslint-plugin-jest": "^21.18.0",
+    "express": "^4.16.3"
   }
 }
