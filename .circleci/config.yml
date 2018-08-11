@@ -11,6 +11,9 @@ jobs:
           name: update-npm
           command: 'sudo npm install -g npm@5'
       - run:
+          name: install-dependencies
+          command: npm install
+      - run:
           name: build
           command: npm run build
       - run:
