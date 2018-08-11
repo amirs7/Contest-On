@@ -34,7 +34,9 @@ workflows:
       - build
   build_and_deploy:
     jobs:
-      - deploy:
+      - build
+      - deploy_on:
+          - deploy
           context: Staging
           requires:
             - build
